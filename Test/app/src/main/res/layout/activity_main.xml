@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bean"
+            type="com.hengyin.test.Bean" />
+        <import type="com.hengyin.test.TimeUtils"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="提交"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <EditText
+            android:id="@+id/ed_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:text="@{String.valueOf(bean.amount)}"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_label_second"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/ed_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@{String.valueOf(bean.second)}"
+            app:layout_constraintBottom_toTopOf="@+id/button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_label_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(bean.amount)}"
+            app:layout_constraintBottom_toTopOf="@+id/ed_amount"
+            app:layout_constraintStart_toStartOf="@+id/ed_amount" />
+
+        <TextView
+            android:id="@+id/tv_label_second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{TimeUtils.getTimeFormat(bean.second)}"
+            app:layout_constraintBottom_toTopOf="@+id/ed_second"
+            app:layout_constraintStart_toStartOf="@+id/ed_second" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
